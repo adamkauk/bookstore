@@ -16,6 +16,15 @@ public abstract class InputOutput
 		System.out.print(string);
 	}
 
+	public static char inputChar(String string) {
+		// TODO Auto-generated method stub
+		if (input_scanner == null) {
+			input_scanner = new Scanner(System.in);
+		}
+		String s = input_scanner.next();
+		return s.charAt(0);
+	}
+
 	
     //The methods used here can be found in:
     //The IB Computer Science subject guide (first examination in 2010)
