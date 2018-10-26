@@ -23,6 +23,28 @@ public abstract class InputOutput
 		}
 		String s = input_scanner.next();
 		return s.charAt(0);
+
+
+	static String input(String Prompt)
+		{String inputLine = " ";
+			System.out.print(Prompt);
+			try
+			{inputLine = (new java.io.BufferedReader(new java.io.InputStreamReader(System.in))).readLine();}
+			catch (Exception e)
+			{String err = e.toString();
+				System.out.println(err);
+				inputLine = " ";
+			}
+			return inputLine;
+		}
+	}
+
+	public static void input(String string) {
+		// TODO Auto-generated method stub
+		if (input_scanner == null) {
+			input_scanner = new Scanner(System.in);
+		}
+		String s = input_scanner.next();
 	}
 
 	public static int inputInt(String string) {
