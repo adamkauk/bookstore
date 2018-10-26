@@ -16,39 +16,6 @@ public abstract class InputOutput
 		System.out.print(string);
 	}
 
-	public static char inputChar(String string) {
-		// TODO Auto-generated method stub
-		if (InputOutput.input_scanner == null) {
-			InputOutput.input_scanner = new Scanner(System.in);
-		}
-		String s = InputOutput.input_scanner.next();
-		return s.charAt(0);
-	}
-
-	public static String input(String string) {
-		if (InputOutput.input_scanner == null) {
-			InputOutput.input_scanner = new Scanner(System.in);
-		}
-		String s = InputOutput.input_scanner.next();
-		return s;
-	}
-
-	public static int inputInt(String string) {
-		if (InputOutput.input_scanner == null) {
-			InputOutput.input_scanner = new Scanner(System.in);
-		}
-		String s = InputOutput.input_scanner.next();
-		
-		return Integer.parseInt(s);
-	}
-
-	public static String inputString(String string) {
-		if (InputOutput.input_scanner == null) {
-			InputOutput.input_scanner = new Scanner(System.in);
-		}
-		String s = InputOutput.input_scanner.next();
-		return s;
-	}
 	
     //The methods used here can be found in:
     //The IB Computer Science subject guide (first examination in 2010)
