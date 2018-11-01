@@ -17,12 +17,30 @@ public abstract class InputOutput
 	}
 
 	public static char inputChar(String string) {
-		// TODO Auto-generated method stub
 		if (input_scanner == null) {
 			input_scanner = new Scanner(System.in);
 		}
 		String s = input_scanner.next();
 		return s.charAt(0);
+	}
+
+	public static String input(String string) {
+		if (input_scanner == null) {
+			input_scanner = new Scanner(System.in);
+		}
+		String s = input_scanner.next();
+		return s;
+	}
+
+	public static int inputInt(String string) {
+		String s = input(string);
+		int i = Integer.parseInt(s);
+		return i;
+	}
+
+	public static String inputString(String string) {
+		String s = input(string);
+		return s;
 	}
 
 	
