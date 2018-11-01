@@ -22,10 +22,11 @@ public abstract class InputOutput
 		}
 		String s = input_scanner.next();
 		return s.charAt(0);
+	}
 
 
-	static String input(String Prompt)
-		{String inputLine = " ";
+	public static String input(String Prompt) {
+		String inputLine = " ";
 			System.out.print(Prompt);
 			try
 			{inputLine = (new java.io.BufferedReader(new java.io.InputStreamReader(System.in))).readLine();}
@@ -35,16 +36,8 @@ public abstract class InputOutput
 				inputLine = " ";
 			}
 			return inputLine;
-		}
 	}
 
-	public static void input(String string) {
-		// TODO Auto-generated method stub
-		if (input_scanner == null) {
-			input_scanner = new Scanner(System.in);
-		}
-		String s = input_scanner.next();
-	}
 
 	public static int inputInt(String string) {
 		// TODO Auto-generated method stub
@@ -55,25 +48,10 @@ public abstract class InputOutput
 		return Sb;
 	}
 
-	public static String input(String string) {
-		if (input_scanner == null) {
-			input_scanner = new Scanner(System.in);
-		}
-		String s = input_scanner.next();
-		return s;
-	}
-
-	public static int inputInt(String string) {
-		String s = input(string);
-		int i = Integer.parseInt(s);
-		return i;
-	}
-
 	public static String inputString(String string) {
 		String s = input(string);
 		return s;
 	}
-
 	
     //The methods used here can be found in:
     //The IB Computer Science subject guide (first examination in 2010)
