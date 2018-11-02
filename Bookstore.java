@@ -1,3 +1,5 @@
+
+
 /**
  * Bookstore class is the main class for the Bookstore example. 
  * 
@@ -44,7 +46,9 @@ public class Bookstore
         InputOutput.output("c) Sort books by price (descending)");
         InputOutput.output("d) Sort books by price (ascending)");
         InputOutput.output("e) Find book with title");
-        InputOutput.output("f) Exit");
+        InputOutput.output("f) Find book with author");
+        InputOutput.output("g) Sort books by aphabet");
+        InputOutput.output("h) Exit");
         InputOutput.output("");
         InputOutput.output("");
 
@@ -61,11 +65,14 @@ public class Bookstore
             break;
             case 'e' : findBookTitle();
             break;
-            case 'f' : System.exit(0);
+            case 'f': findBookAuthor();
             break;
-            default :
-            	showMenu();
-            	break;
+            case 'g': sortbyalphabetical();
+            break;
+            case 'h' : System.exit(0);
+            break;
+            default: showMenu();    
+            break;
         }
     }
 
@@ -110,7 +117,7 @@ public class Bookstore
 
         //sequentially
         books = bf.readBookFile();
-
+        
         if(books == null || books.length == 0) 
             InputOutput.output("There are no books in the bookstore to sort.");
         else {
@@ -214,4 +221,103 @@ public class Bookstore
         InputOutput.output("");
         showMenu();
     }
+    public void findBookAuthor()
+    {
+        InputOutput.output("");
+        InputOutput.output("Search for a book.");
+        String searchParameter = InputOutput.input("Author to search: ");
+        InputOutput.output("");
+
+        Book[] books = null;
+
+        //sequentially
+        books = bf.readBookFile();
+     
+        int toShow = SequentialSearch.sequentialSearchAuthor(searchParameter, books);
+
+        do {
+
+            if(toShow == -1) 
+                InputOutput.output("There is no book in the bookstore with such a Author.");
+            else {
+                int id = books[toShow].getId();
+                String title = books[toShow].getTitle();
+                int pages = books[toShow].getPages();
+                int price = books[toShow].getPrice();
+                int chapters = books[toShow].getChapters();
+                String author = books[toShow].getAuthor();
+                
+                InputOutput.output("");
+                InputOutput.output("=================================");
+                InputOutput.output("ID:" + id);
+                InputOutput.output("TITLE:" + title);
+                InputOutput.output("PAGES:" + pages);
+                InputOutput.output("PRICE ($):" + price);
+                InputOutput.output("CHAPTERS:" + chapters);
+                InputOutput.output("AUTHOR(S):" + author);
+                InputOutput.output("=================================");
+                InputOutput.output("");
+
+                int ltemp = books.length - toShow - 1;
+                Book[] temp = new Book[ltemp];
+
+                for(int i=0; i<temp.length; i++)
+                    temp[i] = books[toShow+i+1];
+
+                books = temp;
+
+                toShow = SequentialSearch.sequentialSearchAuthor(searchParameter, books);
+
+            }
+        } while(toShow != -1);
+
+        InputOutput.output("");
+        InputOutput.input("Press ANY BUTTON to continue.");
+        InputOutput.output("");
+        showMenu();
+    }
+    public void sortbyalphabetical() 
+    {
+    	Book[] books = null;
+
+        //sequentially
+        books = bf.readBookFile();
+        
+        if(books == null || books.length == 0) 
+            InputOutput.output("There are no books in the bookstore to sort.");
+        else {
+        	books = BubbleSort.bubbleSortB(books);
+            InputOutput.output("");
+            InputOutput.output("Sorted books alphabetically:");
+            InputOutput.output("");
+        	
+        }
+        
+        
+        
+    	
+        for(int i=books.length-1; i>=0; i--) {
+            int id = books[i].getId();
+            String title = books[i].getTitle();
+            int pages = books[i].getPages();
+            int price = books[i].getPrice();
+            int chapters = books[i].getChapters();
+            String author = books[i].getAuthor();
+            
+            InputOutput.output("");
+            InputOutput.output("=================================");
+            InputOutput.output("ID:" + id);
+            InputOutput.output("TITLE:" + title);
+            InputOutput.output("PAGES:" + pages);
+            InputOutput.output("PRICE ($):" + price);
+            InputOutput.output("CHAPTERS:" + chapters);
+            InputOutput.output("AUTHOR(S):" + author);       
+
+            InputOutput.output("=================================");
+            InputOutput.output("");
+        }
+    }
 }
+
+
+	

@@ -1,4 +1,5 @@
 
+
 /**
  * BubbleSort class contains methods to sort various data structures in specific orders using the
  * bubble sort algorithm.
@@ -40,5 +41,23 @@ public class BubbleSort
         }
         
         return books;
+    }
+    public static Book[] bubbleSortB(Book[] books)
+    {
+    	int size = books.length;
+    	int last, current;
+    	Book temp;
+    	for(last = size-1; last > 0; last = last - 1)
+        { for(current = 0; current < last; current = current + 1)
+            { 
+        	if (books[current].getTitle().toCharArray()[0] <= books[current + 1].getTitle().toCharArray()[0])
+            {
+                temp = books[current];
+                books[current] = books[current+1];
+                books[current+1] = temp;
+            }
+            }
+        }
+    	return books;
     }
 }

@@ -1,4 +1,5 @@
-import java.util.Scanner;
+
+
 /**
  * class InputOutput
  * 
@@ -9,49 +10,52 @@ import java.util.Scanner;
  */
 public abstract class InputOutput
 {
-	
-	static Scanner input_scanner;
 
 	public static void output(String string) {
 		System.out.println(string);
 	}
-
-	public static char inputChar(String string) {
-		if (input_scanner == null) {
-			input_scanner = new Scanner(System.in);
+	
+	
+	static String input(String str){
+		String inputline = "";
+		try {
+		inputline = (new java.io.BufferedReader(new java.io.InputStreamReader(System.in))).readLine();}
+		catch(Exception e)
+		{String err = e.toString();
+		 System.out.println(err);
+		 inputline = "";
 		}
-		String s = input_scanner.next();
-		return s.charAt(0);
+		return inputline;
 	}
-
-
-	public static String input(String Prompt) {
-		String inputLine = " ";
-			System.out.print(Prompt);
-			try
-			{inputLine = (new java.io.BufferedReader(new java.io.InputStreamReader(System.in))).readLine();}
-			catch (Exception e)
-			{String err = e.toString();
-				System.out.println(err);
-				inputLine = " ";
-			}
-			return inputLine;
+	
+	static int inputInt(String string) {
+		int input = 0;
+		try {
+			input = Integer.valueOf(input(string).trim()).intValue();}
+		catch(Exception e) {input=0;}
+		return input;		
 	}
-
-
-	public static int inputInt(String string) {
-		// TODO Auto-generated method stub
-		if (input_scanner == null) {
-			input_scanner = new Scanner(System.in);
+	
+	static char inputChar(String string) {
+		char input = (char)0;
+		try {
+			input = input(string).charAt(0);}
+		catch(Exception e) {
+			input = (char)0;
 		}
-		int Sb = input_scanner.nextInt();
-		return Sb;
+		return input;
 	}
-
-	public static String inputString(String string) {
-		String s = input(string);
-		return s;
+	static String inputString(String string) {
+		String input = "";
+		try {
+			input = input(string);}
+		catch(Exception e) {
+			input = "";	
+		}
+		return input;
 	}
+	
+		
 	
     //The methods used here can be found in:
     //The IB Computer Science subject guide (first examination in 2010)
