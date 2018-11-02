@@ -63,8 +63,9 @@ public class Bookstore
             break;
             case 'f' : System.exit(0);
             break;
-            default :    
-            break;
+            default :
+            	showMenu();
+            	break;
         }
     }
 
