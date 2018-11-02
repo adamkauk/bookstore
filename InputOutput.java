@@ -13,7 +13,7 @@ public abstract class InputOutput
 	static Scanner input_scanner;
 
 	public static void output(String string) {
-		System.out.print(string);
+		System.out.print(string + " ");
 	}
 
 	public static char inputChar(String string) {
