@@ -1,4 +1,4 @@
-
+// This is a new comment.
 
 /**
  * Bookstore class is the main class for the Bookstore example. 
