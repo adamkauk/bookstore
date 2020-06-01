@@ -1,5 +1,5 @@
 // This is a new comment.
-// and another
+// and another. This is a trivial change.
 
 /**
  * Bookstore class is the main class for the Bookstore example. 
